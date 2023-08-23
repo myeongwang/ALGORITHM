@@ -7,3 +7,13 @@ def solution(arr1, arr2):
             row.append(arr1[i][j]+arr2[i][j])
         arr3.append(row)    
     return arr3    
+
+"""
+import numpy as np
+
+def sumMatrix(A,B):
+    A_np = np.array(A)
+    B_np = np.array(B)
+    result = A_np + B_np
+    return result.tolist()
+    """
