@@ -1,11 +1,4 @@
-a, b = map(int, input().strip().split(' '))
-arr=[]
+n, m = map(int, input().split())  # 두 개의 정수 n과 m을 입력받음
 
-for i in range(b):
-    row=[]
-    for j in range(a):
-        row.append('*')
-    arr.append(row)  
-    
-for i in range(b):
-    print(''.join(arr[i]))
+for _ in range(m):  # 세로의 길이 m만큼 반복
+    print('*' * n)  # 가로의 길이 n만큼 별(*) 문자 출력
