@@ -1,11 +1,14 @@
 def solution(price, money, count):
-    total = sum(price * (i + 1) for i in range(count))
+    total = [ price*i for i in range(1,count+1)]
+    total_sum=0
     
-    if total <= money:
-        return 0
+    for i in range(count):
+        total_sum+=total[i]
+    
+    if total_sum-money>0:
+        return total_sum - money
     else:
-        return total - money
-
+        return 0
 
 
     
