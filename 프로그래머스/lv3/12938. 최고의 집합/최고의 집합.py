@@ -17,3 +17,10 @@ def solution(n, s):
                 answer = [quotient] * (n - remainder) + [quotient + 1] * remainder
                   
     return answer
+        
+        
+    
+    
+    
+    
+    
