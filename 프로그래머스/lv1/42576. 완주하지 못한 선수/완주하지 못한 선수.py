@@ -1,20 +1,23 @@
 def solution(participant, completion):
     
-    participant_dict={}
+    participant_dict = {} # 동명이인을 처리하기 위한 딕셔너리를 생성
     
-    for p in participant:
-        if p in participant_dict:
-            participant_dict[p]+=1 #이미 있는 경우(동명이인)
+    # 참가자 목록을 딕셔너리에 추가
+    for part in participant:
+        if part not in participant_dict:
+            participant_dict[part] = 1
         else:
-            participant_dict[p]=1
-            
-    for c in completion:
-        if c in participant_dict:
-            participant_dict[c]-=1
-            if participant_dict[c]==0:
-                del participant_dict[c]
-                
-    return list(participant_dict.keys())[0]
+            participant_dict[part] += 1
+    
+    # 완주자 목록을 딕셔너리에서 빼기
+    for com in completion:
+        if com in participant_dict:
+            participant_dict[com] -= 1
+            if participant_dict[com] == 0:
+                del participant_dict[com]  # 딕셔너리에서 완주한 참가자 삭제
+                                           # del은 index의 요소 삭제
+    return(list(participant_dict)[0])      # remove는 값을 삭제
+    
     
 """
     participant_dict = {}  # 참가자를 딕셔너리로 변환
