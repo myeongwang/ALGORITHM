@@ -19,7 +19,7 @@ def solution(genres, plays):
     for i in range(len(genres)):
         genre = genres[i]
         play = plays[i]
-
+        print(genre,play)
         # genres_dic 업데이트
         if genre not in genres_dic:
             genres_dic[genre] = play
@@ -34,7 +34,7 @@ def solution(genres, plays):
 
     # genres_dic을 재생 횟수 내림차순으로 정렬
     sorted_genres = sorted(genres_dic.keys(), key=lambda x: genres_dic[x], reverse=True)
-
+    print(sorted_genres)
     answer = []
 
     # 재생 횟수가 많은 장르부터 순회
@@ -50,9 +50,10 @@ def solution(genres, plays):
 
     
   
-        
+
+"""sdfaadf
+"""
                    
         
         
    
-    
