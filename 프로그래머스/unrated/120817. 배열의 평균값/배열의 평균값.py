@@ -2,5 +2,5 @@ import numpy as np
 
 def solution(numbers):
     
-    return np.mean(numbers)
+    return np.sum(numbers)/len(numbers)
     
