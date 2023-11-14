@@ -1,8 +1,11 @@
 def solution(emergency):
-    dic={}
+    dic = {}
     
     for char in emergency:
-        dic[char] = sorted(emergency,reverse=True).index(char)+1
-     
+        dic[char] = sorted(emergency, reverse=True).index(char) + 1
         
-    return [dic[num]for num in emergency]    
+     
+    return [dic[char]for char in emergency] #[]처리가 ㅈㄴ 중요함
+
+        
+   
