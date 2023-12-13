@@ -1,6 +1,6 @@
 n = int(input())
 numbers = list(map(int, input().split()))  
-numbers = sorted(numbers) 
+numbers.sort()
 arr = []
 
 for i in range(n):
