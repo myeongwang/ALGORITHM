@@ -1,8 +1,10 @@
-n = int(input())
-num_list = []
+n= int(input())
+arr=[0]*n
 
-for _ in range(n):
-    num_list.append(int(input()))
+for i in range(n):
+    arr[i]=int(input())
     
-for num in sorted(num_list):
-    print(num)
+arr.sort()
+
+for i in range(n):
+    print(arr[i])
