@@ -2,37 +2,24 @@ import sys
 input = sys.stdin.readline
 
 def is_palindrome(word):
-    left, right = 0, len(word) - 1
-
+    left = 0
+    right = len(word) - 1
     while left < right:
-        if word[left] != word[right]:
-            return False
-        left += 1
-        right -= 1
-
-    return True
-
-def solve(word):
-    if is_palindrome(word):
-        return 0
-    left, right = 0, len(word) - 1
-
-    while left < right:
-        if word[left] != word[right]:
-            removed_left = word[:left] + word[left+1:]
-            removed_right = word[:right] + word[right+1:]
-            if is_palindrome(removed_left) or is_palindrome(removed_right):
+        # 양끝이 동일하면 하나씩 앞으로 당김
+        if word[left] == word[right]:
+            left += 1
+            right -= 1
+        else:
+            pseudo_left = word[left + 1:right + 1]
+            pseudo_right = word[left:right]
+            if pseudo_left == pseudo_left[::-1] or pseudo_right == pseudo_right[::-1]:
                 return 1
             else:
                 return 2
-        left += 1
-        right -= 1
+    return 0
 
-    return 2
-
-T = int(input())  # 테스트케이스 수 입력
+T = int(input()) #테스트케이스
 
 for i in range(T):
     N = input().strip()
-    result = solve(N)
-    print(result)
+    print(is_palindrome(N))
