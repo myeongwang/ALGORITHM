@@ -9,8 +9,8 @@ count = 0
 while True:
     ten = n // 10  
     one = n % 10   
-    new_number = ten + one  
-    n = (one * 10) + (new_number % 10)  
+    num = ten + one  
+    n = (one * 10) + (num % 10)  
 
     count += 1
 
