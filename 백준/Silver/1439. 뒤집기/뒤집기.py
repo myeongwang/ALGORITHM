@@ -1,14 +1,9 @@
-s = input().strip() 
+word = list(map(int,input().strip()))
+count = 1
 
-s_count = 1  
-
-for i in range(1, len(s)):
-    if s[i] != s[i - 1]:  
-        s_count += 1  
-
-result = s_count // 2
-print(result)
-
-
-
+for i in range(1,len(word)):
+    if word[i-1]!= word[i]:
+        count+=1
+print(count//2)        
+    
     
