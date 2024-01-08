@@ -1,20 +1,27 @@
-def binary_search(array, target, start, end):
-    while start <= end:
-        mid = (start + end) // 2
-        if array[mid] == target:
-            return 1
-        elif array[mid] > target:
-            end = mid - 1
+# 완전탐색 시 시간초과 
+
+N = int(input().strip())
+digits = list(map(int, input().split()))
+M = int(input().strip())
+finds = list(map(int, input().split()))
+
+digits.sort()
+
+def binary_search(value, start, end):
+    low, high = start, end
+    while low <= high:
+        mid = (low + high) // 2
+        if digits[mid] < value:
+            low = mid + 1
+        elif digits[mid] > value:
+            high = mid - 1
         else:
-            start = mid + 1
-    return 0
+            return True
+    return False
+    
 
-N = int(input())
-array = list(map(int, input().split()))
-array.sort()
-
-M = int(input())
-targets = list(map(int, input().split()))
-
-for target in targets:
-    print(binary_search(array, target, 0, N - 1))
+for find in finds:
+    if binary_search(find, 0, N - 1):
+        print (1)
+    else:
+        print (0)
