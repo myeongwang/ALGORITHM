@@ -15,9 +15,6 @@ def min_coin_count(N, M, coin_values):
             count += num_coins
             M -= num_coins * coin
 
-    if M != 0:
-        return -1  # 남은 잔돈을 모두 동전으로 바꿀 수 없는 경우
-
     return count
 
 # 함수 실행
