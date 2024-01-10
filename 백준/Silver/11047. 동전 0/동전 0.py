@@ -7,7 +7,7 @@ coin_values = [int(input()) for _ in range(N)]
 def min_coin_count(N, M, coin_values):
     coin_values.sort(reverse=True)  # 동전 가치를 내림차순으로 정렬
 
-    count = 0  # 동전 개수를 저장할 변수
+    count = 0  # 동전 개수
 
     for coin in coin_values:
         if M >= coin:
