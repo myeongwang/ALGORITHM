@@ -17,6 +17,5 @@ def min_coin_count(N, M, coin_values):
 
     return count
 
-# 함수 실행
 result = min_coin_count(N, M, coin_values)
 print(result)
