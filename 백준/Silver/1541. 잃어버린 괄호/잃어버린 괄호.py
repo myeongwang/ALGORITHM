@@ -1,9 +1,21 @@
-expression = input().strip()  # 입력 문자열을 읽어옵니다.
-parts = expression.split('-')  # '-'를 기준으로 수식을 나눕니다.
+import sys 
+input = sys.stdin.readline
+answer = 0
+arr = list(map(str, input().split("-")))
 
-total = sum(map(int,parts[0].split('+')))
-
-for part in parts[1:]:
-    total-=sum(map(int,part.split('+')))
-
-print(total)
+def mysum(i):
+    sum=0
+    temp = str(i).split("+")
+    for i in temp:
+        sum+= int(i)
+    return sum    
+    
+    
+    
+for i in range(len(arr)):
+    if i==0:
+        answer += mysum(arr[i])
+    else:
+        answer-= mysum(arr[i])
+        
+print(answer)        
