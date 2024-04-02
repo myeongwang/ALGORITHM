@@ -1,24 +1,18 @@
-n= int(input())
-finds = list(map(int,input().split()))
-m= int(input())
-arr = list(map(int,input().split()))
+import sys
+input = sys.stdin.readline
+sys.setrecursionlimit(10000)
 
-finds.sort()
+# 첫 번째 리스트 n1의 길이와 요소들 입력받기
+n = int(input())
+n1 = set(map(int, input().split()))
 
-def solution(value,start,end):
-    low,high = start,end
-    while low<=high:
-        mid = (low+high)//2
-        if finds[mid] < value:
-            low = mid+1
-        elif finds[mid] > value:
-            high =mid-1
-        else:
-            return True
-    return False
+# 두 번째 리스트 m1의 길이와 요소들 입력받기
+m = int(input())
+m1 = list(map(int, input().split()))
 
-for find in arr:
-    if solution(find,0,n-1):
-        print(1)
+# 두 번째 리스트 m1의 각 요소에 대해 반복하여 첫 번째 리스트 n1에 포함되어 있는지 확인
+for num in m1:
+    if num in n1:
+        print(1)  # 찾는 값이 있으면 1 출력
     else:
-        print(0)
+        print(0)  # 찾는 값이 없으면 0 출력
