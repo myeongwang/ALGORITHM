@@ -1,11 +1,10 @@
 def solution(targets):
-    answer = 0
-    targets.sort(key = lambda x: [x[1], x[0]])
-    
-    s = e = 0
-    for target in targets:
-        if target[0] >= e:
-            answer += 1
-            e = target[1]
+    answer = 1
+    targets.sort(reverse=True)
+    start=targets[0][0]
+    for s,e in targets:
+        if e<=start:
+            answer+=1
+            start=s
 
-    return answer 
+    return answer
