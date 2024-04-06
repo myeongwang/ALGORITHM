@@ -1,20 +1,14 @@
-n= int(input())
-count =1 
-start_index=1
-end_index=1
-sum=1
+import sys
+input = sys.stdin.readline
 
-while end_index !=n:
-   if sum < n:
-    end_index +=1
-    sum+=end_index
-   elif sum >n:
-    sum-=start_index
-    start_index+=1
-   
-   else:
-    count+=1
-    end_index+=1
-    sum+=end_index
-    
-print(count)        
+n = int(input())
+
+count = 0
+for i in range(1, n+1):
+    s = i * (i + 1) // 2  # 1부터 i까지의 합을 계산하는 공식
+    if s > n:
+        break
+    if (n - s) % i == 0:  # n에서 1부터 i까지의 합을 뺀 값이 i의 배수인지 확인
+        count += 1
+
+print(count)
