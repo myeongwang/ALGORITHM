@@ -1,22 +1,22 @@
 import sys
-input = sys.stdin.readline 
+input= sys.stdin.readline
 
-n,m = map(int,input().split())
-A= [[0]*(n+1)] # 행렬 요소 저장공간
-D= [[0]*(n+1) for _ in range(n+1)] # 구간 합 행렬 저장공간 존나하고 
+n,m= map(int,input().split())
+arr=[[0]*(n+1)] # 리스트 들어갈 자리 # 여기에는 append 예정
+D=[[0]*(n+1) for _ in range(n+1)]# 합 배열 들어갈 자리 #여기에는 초기화 예정
 
-for i in range(n): # 행렬 저장
-    A_row = [0]+[int(x) for x in input().split()]
-    A.append(A_row)
+for i in range(n):
+    arr_row = [0]+[int(x) for x in input().split()]
+    arr.append(arr_row)
     
-for i in range(1,n+1): # 구간합 저장
+for i in range(1,n+1):
     for j in range(1,n+1):
-        # 합 배열 구현
-        D[i][j]= D[i][j-1]+ D[i-1][j]-D[i-1][j-1]+ A[i][j]
+        D[i][j]=D[i-1][j]+D[i][j-1]-D[i-1][j-1] +arr[i][j] 
+        # 합 배열 구하기 공식 memory
         
+# 합 출력 공식 memory
 for _ in range(m):
     x1,y1,x2,y2 = map(int,input().split())
-    result = D[x2][y2]- D[x1-1][y2] - D[x2][y1-1] + D[x1-1][y1-1]
+    result = D[x2][y2]- D[x1-1][y2]- D[x2][y1-1]+ D[x1-1][y1-1] #1,4/ 3,1
     print(result)
-    
-    
+        
